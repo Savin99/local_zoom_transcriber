@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gigaam"
+version = "0.1.0"
+description = "GigaAM: A package for audio modeling and ASR."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "GigaChat Team" },
+]
+
+dependencies = [
+    "hydra-core==1.3.*",
+    "numpy==2.*",
+    "omegaconf==2.3.*",
+    "onnx==1.19.*",
+    "onnxruntime==1.23.*",
+    "soundfile",
+    "sentencepiece",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+# Why torch is optional: often preinstalled and reinstall is slow.
+# Older builds also work, pinned extras are recommended.
+torch = [
+    "torch>=2.6",
+    "torchaudio>=2.6",
+]
+longform = [
+    "numba>=0.62",
+    "pyannote.audio==4.0.*",
+    "pyarrow>=23",
+    "torch==2.10.*",
+    "torchaudio==2.10.*",
+    "torchcodec==0.10",
+    "transformers==5.*",
+]
+train = [
+    "editdistance",
+    "lightning>=2.6",
+    "tensorboard>=2.20",
+    "wandb>=0.25",
+]
+tests = [
+    "pytest",
+    "pytest-cov",
+    "scipy",
+]
+lint = [
+    "black==26.1.0",
+    "isort==7.0.0",
+    "flake8",
+    "mypy",
+    "types-requests",
+]
+
+[project.urls]
+Homepage = "https://github.com/salute-developers/GigaAM/"
+
+[tool.setuptools.packages.find]
+include = ["gigaam"]
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"

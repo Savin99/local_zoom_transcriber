@@ -1,0 +1,16 @@
+# Local Zoom Transcriber — зависимости.
+#
+# Установка:
+#   python3 -m venv .venv
+#   .venv/bin/pip install -r requirements.txt
+#
+# PyTorch ставится с PyPI под вашу платформу (CPU-сборки достаточно).
+# Для CUDA/MPS-сборок см. https://pytorch.org/get-started/locally/
+torch>=2.6
+torchaudio>=2.6
+
+# Вендоренный фреймворк распознавания речи GigaAM (MIT, см. GigaAM/LICENSE).
+# Ставится из локальной папки ./GigaAM; транзитивные зависимости
+# (hydra-core, numpy, soundfile, onnx, onnxruntime, sentencepiece)
+# подтягиваются автоматически из GigaAM/pyproject.toml.
+-e ./GigaAM

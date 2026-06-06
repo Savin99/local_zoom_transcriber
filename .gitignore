@@ -1,0 +1,24 @@
+# Виртуальное окружение
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Сборки и большие бинарники (torch-wheel ставится из PyPI)
+build/
+dist/
+wheelhouse/
+
+# Данные Zoom и результаты транскрибации — в репозитории не храним
+*.m4a
+*.zip
+transcripts/
+cowork_test_transcripts/
+.zoom_transcriber_state.json
